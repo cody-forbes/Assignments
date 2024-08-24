@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mod03 Assignment</title>
+</head>
+<body>
+
+<h1>Mod03 Assignment</h1>
+
+
+<script>
+
+	//deliverable 1
+    document.write("Deliverable 1<br>");
+	
+	for (let i = 0; i <= 10; i++) {
+        
+        if (Number.isInteger(i / 2)) {
+            document.write(`Count ${i} is even<br>`);
+        } else {
+            document.write(`Count ${i} is odd<br>`);
+         
+        }
+	}
+    
+	//deliverable 2
+	document.write("<br>");
+	document.write("Deliverable 2<br>");
+    
+    var myNum = prompt("Please enter a number between 5 & 20: ");
+	var i = 0;
+	do {
+		document.write(i+1+"<br>");
+		i++;
+	} while (i != myNum)
+	
+	
+	//deliverable 3
+	document.write("<br>");
+	document.write("Deliverable 3<br>");
+	
+	const subjects = ["Accounting", "Algebra", "Programming", "Art", "Data Analytics"];
+	subjects.forEach(function(display) {
+		document.write(display + "<br>");
+	});
+	
+	
+	//deliverable 4
+	document.write("<br>");
+	document.write("Deliverable 4<br>");
+	
+	document.write(`${subjects.join(", ")}`);
+	
+	
+</script>
+
+</body>
+</html>
