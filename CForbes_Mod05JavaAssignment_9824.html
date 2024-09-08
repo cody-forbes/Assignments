@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mod </title>
+</head>
+<body>
+
+    <h1>Fictional Dog Example</h1>
+
+    <script>
+       
+        //myDog object literal for Brian Griffin from Family Guy
+        let myDog = {
+            name: "Brian Griffin",
+            show: "Family Guy",
+            breed: "Labrador Retriever",
+            mySound: "I have a calm, sarcastic, and human-like voice",
+            notes: "I am the family dog and equal family member in the Griffins, a dysfunctional family."
+        };
+
+        //display object literal
+        document.write(`<p>Hello my name is ${myDog.name}, ${myDog.mySound}. I was a character in ${myDog.show}. My character is a ${myDog.breed}. ${myDog.notes}</p>`);
+
+        
+		//constructor funtion
+        function Dog(name, show, breed, mySound, canTalk, notes) {
+            this.name = name;
+            this.show = show;
+            this.breed = breed;
+            this.mySound = mySound;
+            this.canTalk = canTalk;
+            this.notes = notes;
+
+            //dog's greeting
+            this.myGreeting = function() {
+                let talkAbility = this.canTalk ? "can talk" : "cannot talk";
+                document.write(`<p>Hello my name is ${this.name}, ${this.mySound}. I was a character in ${this.show}. My character is a ${this.breed}. ${this.notes}</p>`);
+            };
+        }
+
+        
+		//create an instance of dog object
+        let myDogConst = new Dog(
+            "Brian Griffin", 
+            "Family Guy", 
+            "Labrador Retriever", 
+            "I have a calm, sarcastic, and human-like voice", 
+            true, // Brian can talk in the show
+            "I am the family dog and equal family member in the Griffins, a dysfunctional family."
+        );
+
+        //use display function
+        myDogConst.myGreeting();
+    </script>
+
+</body>
+</html>
