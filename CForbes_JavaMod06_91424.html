@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fictional Dog Example</title>
+</head>
+<body>
+
+    <h1>Fictional Dog Example</h1>
+
+    <script>
+       
+        //mod 05 code
+        let myDog = {
+            name: "Brian Griffin",
+            show: "Family Guy",
+            breed: "Labrador Retriever",
+            mySound: "I have a calm, sarcastic, and human-like voice",
+            notes: "I am the family dog and equal family member in the Griffins, a dysfunctional family."
+        };
+
+        
+        document.write(`<p>Hello my name is ${myDog.name}, ${myDog.mySound}. I was a character in ${myDog.show}. My character is a ${myDog.breed}. ${myDog.notes}</p>`);
+
+        
+		//dog constructor function
+        function Dog(name, show, breed, mySound, canTalk, notes) {
+            this.name = name;
+            this.show = show;
+            this.breed = breed;
+            this.mySound = mySound;
+            this.canTalk = canTalk;
+            this.notes = notes;
+
+            
+            this.myGreeting = function() {
+                let talkAbility = this.canTalk ? "can talk" : "cannot talk";
+                document.write(`<p>Hello my name is ${this.name}, ${this.mySound}. I was a character in ${this.show}. My character is a ${this.breed}. I ${talkAbility}. ${this.notes}</p>`);
+            };
+        }
+
+        //mod 05 dog
+        let myDogConst = new Dog(
+            "Brian Griffin", 
+            "Family Guy", 
+            "Labrador Retriever", 
+            "I have a calm, sarcastic, and human-like voice", 
+            true, // Brian can talk in the show
+            "I am the family dog and equal family member in the Griffins, a dysfunctional family."
+        );
+
+        //mod 05 dog display
+        myDogConst.myGreeting();
+
+       //create new instance of dog
+        let scoobyDoo = new Dog(
+            "Scooby-Doo", 
+            "Scooby-Doo, Where Are You!", 
+            "Great Dane", 
+            "I often say 'Scooby-Dooby-Doo!'", 
+            true, 
+            "I solve mysteries with my friends in the Mystery Machine."
+        );
+
+		//create new instance of dog
+        let santasLittleHelper = new Dog(
+            "Santa's Little Helper", 
+            "The Simpsons", 
+            "Greyhound", 
+            "I bark but don't talk like humans", 
+            false, 
+            "I'm the family dog of the Simpsons."
+        );
+
+
+        //store all dogs
+        let dogs = {
+            "Brian Griffin": myDogConst,
+            "Scooby-Doo": scoobyDoo,
+            "Santa's Little Helper": santasLittleHelper
+        };
+
+        //prompt the user to select a dog by name
+        let userChoice = prompt("Which dog do you want to know about? (Brian Griffin, Scooby-Doo, or Santa's Little Helper)");
+
+
+        //make sure dog exists
+        if (dogs[userChoice]) {
+            //display the selected dog details
+            dogs[userChoice].myGreeting();
+        } else {
+            // Display error if the dog is not found
+            document.write("<p>Sorry, you entered an incorrect dog name.</p>");
+        }
+
+
+        //for...in loop to display the property values
+        document.write("<h2>Dog Details:</h2>");
+        for (let dogName in dogs) {
+            let dog = dogs[dogName];
+            document.write(`<h3>${dog.name}</h3>`);
+            for (let property in dog) {
+                if (typeof dog[property] !== 'function') {
+                    if (property === 'canTalk') {
+                        let talkAbility = dog.canTalk ? "I can talk" : "I cannot talk";
+                        document.write(`<p>${talkAbility}</p>`);
+                    } else {
+                        document.write(`<p>${dog[property]}</p>`);
+                    }
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
